@@ -1,6 +1,71 @@
-**/.ipynb_checkpoints/**
+# Python-specific
+pycache/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+*.egg
+pip-wheel-metadata/
+.env
+.venv/
+venv/
+env/
+*.env
 
+# Jupyter Notebook-specific
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# VS Code-specific
+.vscode/
+*.code-workspace
+
+#macOS-specific
 .DS_Store
-**/.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
 
-**/*.zip
+# Common IDE and editor files
+*.swp
+*~
+*.bak
+*.tmp
+
+# Project-specific (optional, adjust as needed)
+datasets/
+images/
+*.csv
+*.tgz
+*.jpg
+*.png
+*.pdf
+*.log
+*.sqlite
+*.db
+
+# Sensitive files
+*.key
+*.pem
+*.crt
+*.secret
+secrets/
+credentials/
+config.yaml
+config.json
