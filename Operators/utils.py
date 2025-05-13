@@ -19,3 +19,24 @@ def get_image_directory():
         print(f"Created directory: {image_directory}")
 
     return image_directory
+
+
+def read_image(image_path):
+    """
+    Reads an image from the specified path.
+
+    Parameters:
+    image_path (str): The path to the image file.
+
+    Returns:
+    numpy.ndarray: The image as a NumPy array.
+    """
+    import cv2
+
+    # Read the image using OpenCV
+    image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+
+    if image is None:
+        raise ValueError(f"Image not found or unable to read: {image_path}")
+
+    return image
