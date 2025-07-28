@@ -2,6 +2,9 @@
 
 A comprehensive face anonymization system that provides both image-based and real-time video face detection and blurring capabilities. Built with MediaPipe for high-accuracy face detection and OpenCV for image processing.
 
+# Demo
+https://github.com/user-attachments/assets/275721f2-1133-4030-92d9-37d5b590a6f5
+
 ## 📁 Directory Structure
 
 ```
