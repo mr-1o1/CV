@@ -1,3 +1,5 @@
-opencv-python
+opencv-python==4.6.0.66
+numpy<2
 matplotlib
 ipympl
+mediapipe==0.10.5
