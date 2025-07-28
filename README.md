@@ -16,11 +16,11 @@ CV/
 │   ├── sobel_filter.ipynb # Interactive Sobel filter tutorial
 │   ├── utils.py         # Operator utilities
 │   └── images/          # Test images for operators
-├── projects/            # Real-world CV applications
+├── anonymizer/          # Face anonymization applications
 │   ├── face_anonimizer.py      # Image-based face anonymization
 │   ├── face_anonimizer_video.py # Real-time video face anonymization
-│   ├── utils.py         # Project utilities
-│   └── color_detection.py # Color detection implementation
+│   ├── utils.py         # Anonymization utilities
+│   └── README.md        # Detailed anonymization documentation
 ├── images/              # Test images and datasets
 └── requirements.txt     # Python dependencies
 ```
@@ -98,9 +98,9 @@ color_angle = gradient_angle_in_color(gradient_angle, gradient_magnitude)
 - Step-by-step implementation guide
 - Visual demonstrations and examples
 
-## 🎯 Real-World Projects
+## 🎯 Real-World Applications
 
-The `projects/` directory contains practical computer vision applications.
+The `anonymizer/` directory contains practical face anonymization applications.
 
 ### Face Anonymization
 
@@ -115,7 +115,7 @@ The `projects/` directory contains practical computer vision applications.
 
 **Usage:**
 ```python
-python projects/face_anonimizer.py
+python anonymizer/face_anonimizer.py
 ```
 
 #### Real-Time Video Anonymization (`face_anonimizer_video.py`)
@@ -128,14 +128,14 @@ python projects/face_anonimizer.py
 
 **Usage:**
 ```python
-python projects/face_anonimizer_video.py
+python anonymizer/face_anonimizer_video.py
 ```
 
-### Project Utilities (`utils.py`)
-Shared utility functions for project implementations:
+### Anonymization Utilities (`utils.py`)
+Shared utility functions for anonymization implementations:
 
 ```python
-from projects.utils import to_rgb, to_bgr, blur_img_segment, get_bbox_values
+from anonymizer.utils import to_rgb, to_bgr, blur_img_segment, get_bbox_values
 
 # Color space conversions
 rgb_img = to_rgb(bgr_img)
@@ -180,7 +180,7 @@ pip install mediapipe==0.10.5
 ### For Beginners
 1. Start with `fundamentals/io_image.ipynb` to learn basic image operations
 2. Explore `Operators/sobel_filter.ipynb` for edge detection concepts
-3. Try the face anonymization projects for practical applications
+3. Try the face anonymization applications for practical experience
 
 ### For Intermediate Users
 1. Study the Sobel operator implementation in `Operators/sobel_operator.py`
@@ -191,6 +191,7 @@ pip install mediapipe==0.10.5
 1. Extend the face anonymization with additional privacy features
 2. Implement additional edge detection operators
 3. Create new computer vision applications
+4. Explore the detailed documentation in `anonymizer/README.md`
 
 ## 🤝 Contributing
 
