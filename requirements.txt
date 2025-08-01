@@ -3,3 +3,4 @@ numpy<2
 matplotlib
 ipympl
 mediapipe==0.10.5
+scikit-learn
