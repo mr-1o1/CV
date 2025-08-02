@@ -11,6 +11,11 @@ def to_rgb(img):
 def to_bgr(img):
     return cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
 
+def printp(*args):
+    print("="*80)
+    print()
+    print(*args)
+
 
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
@@ -22,16 +27,16 @@ hands = mp_hands.Hands(
     min_detection_confidence=0.3
 )
 
-
 DATA_DIR = './data'
-
-for dir in os.listdir(DATA_DIR):
+for dir in os.listdir(DATA_DIR)[:2]:
     if '.DS_Store' == dir:
         continue
+    
+    printp("Current Reading From: ", dir)
 
+    # Reading images in the selected directory
     for img_path in os.listdir(os.path.join(DATA_DIR, dir)):
         img_filepath = os.path.join(DATA_DIR, dir, img_path)
-
         img = cv2.imread(img_filepath)
         img_rgb = to_rgb(img)
 
@@ -39,25 +44,12 @@ for dir in os.listdir(DATA_DIR):
 
         if not results.multi_hand_landmarks:
             continue
-
-        image_height, image_width, _ = img_rgb.shape
-        annotated_image = img_rgb.copy()
+        
+        # For each hand detected
         for hand_landmarks in results.multi_hand_landmarks:
-            print('hand_landmarks:', hand_landmarks)
-            print(
-                f'Index finger tip coordinates: (',
-                f'{hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * image_width}, '
-                f'{hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * image_height})'
-            )
-            mp_drawing.draw_landmarks(
-                annotated_image,
-                hand_landmarks,
-                mp_hands.HAND_CONNECTIONS,
-                mp_drawing_styles.get_default_hand_landmarks_style(),
-                mp_drawing_styles.get_default_hand_connections_style())
-
-        plt.figure()
-        plt.imshow(annotated_image)
-
-plt.show()
+            # Each hand shall contain 21 landmarks
+            for i in range(len(hand_landmarks.landmark)):
+                x = hand_landmarks.landmark[i].x
+                y = hand_landmarks.landmark[i].y
+            
 
