@@ -27,8 +27,11 @@ hands = mp_hands.Hands(
     min_detection_confidence=0.3
 )
 
+data = []
+labels = []
+
 DATA_DIR = './data'
-for dir in os.listdir(DATA_DIR)[:2]:
+for dir in os.listdir(DATA_DIR)[:5]:
     if '.DS_Store' == dir:
         continue
     
@@ -45,11 +48,18 @@ for dir in os.listdir(DATA_DIR)[:2]:
         if not results.multi_hand_landmarks:
             continue
         
+        data_points = []  # would contain hand landmarks datapoints for each image
         # For each hand detected
         for hand_landmarks in results.multi_hand_landmarks:
             # Each hand shall contain 21 landmarks
             for i in range(len(hand_landmarks.landmark)):
                 x = hand_landmarks.landmark[i].x
                 y = hand_landmarks.landmark[i].y
-            
+                
+                data_points.append(x)
+                data_points.append(y)
+
+        data.append(data_points)  # each index contain info of landmarks from each image
+        labels.append(dir)  # dir contains datapoints for same hand shape
+          
 
