@@ -1,6 +1,7 @@
 import os
 import mediapipe as mp
 import cv2
+import pickle
 from matplotlib import pyplot as plt
 
 
@@ -31,7 +32,7 @@ data = []
 labels = []
 
 DATA_DIR = './data'
-for dir in os.listdir(DATA_DIR)[:5]:
+for dir in os.listdir(DATA_DIR):
     if '.DS_Store' == dir:
         continue
     
@@ -61,5 +62,14 @@ for dir in os.listdir(DATA_DIR)[:5]:
 
         data.append(data_points)  # each index contain info of landmarks from each image
         labels.append(dir)  # dir contains datapoints for same hand shape
-          
 
+# Save data
+f = open('data.pickle', 'wb')
+pickle.dump(
+    {
+        'data': data,
+        'labels': labels
+    },
+    file = f
+)
+f.close()
